@@ -1,133 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Title</title>
     <script src="vue.js"></script>
-
-
-
-</head>
-<body>
-
-<div id="app">
-    <!--this is comment-->  {{ message }}
-</div>
-<div id="app1">
-    <div  >
-
+  </head>
+  <body>
+    <div id="app">
+      <!--this is comment-->
+      {{ message }}
+    </div>
+    <div id="app1">
+      <div>
         <!--count={{count}}-->
         <!--reversedCount={{reversedCount}}-->
+      </div>
     </div>
 
+    <script>
+      console.log(Object.keys("abcd"));
+      debugger;
+      console.log("=====return 1=======");
+      console.log(new Function("return 1"));
 
-</div>
+      console.log("return=" + new Function("return " + function () {}));
 
+      var app = new Vue({
+        el: "#app",
+        beforeCreate() {},
+        created() {},
+        beforeMount() {
+          console.log(
+            "%c 🥤 this: ",
+            "font-size:20px;background-color: #F5CE50;color:#fff;",
+            this
+          );
 
-<script>
-    console.log( Object.keys('abcd'))
-    debugger;
-    console.log('=====return 1=======')
-    console.log(   new Function('return 1'))
-
-    console.log('return='+ new Function(("return " + function () {
-                
-            })));
-
-
-
-    var app = new Vue({
-
-        el: '#app',
-        beforeCreate(){
-
+          //   setTimeout(() => {
+          //     console.log(
+          //       "%c 🥤 this: ",
+          //       "font-size:20px;background-color: #F5CE50;color:#fff;",
+          //       this.$data
+          //     );
+          //   }, 3000);
         },
-        created(){
+        mounted: () => {
+          //挂载元素，获取到DOM节点
+          setTimeout(() => {
+            console.log("this.count=" + this.count);
+            this.count += 1;
+          }, 1000);
+        },
+        beforeUpdate() {},
+        updated() {
+          //挂载元素，获取到DOM节点
+        },
+        beforeDestroy() {},
+        destroyed() {},
+        data: () => {
+          return {
+            count: 0,
 
+            message: "Hello Vue!1111111",
+          };
         },
-        beforeMount(){
+        //        data: {
+        //            count:0,
+        //            message: 'Hello Vue!'
+        //        }
+      });
 
-        },
-        mounted: ()=> { //挂载元素，获取到DOM节点
-           setTimeout(()=>{
-//                this.count+=1;
-//                console.log('this.count='+this.count)
-           },1000)
-        },
-        beforeUpdate(){
+      // var app1 = new Vue({
+      //     comments:true,
+      //     el: '#app1',
+      //     beforeCreate(){
 
-        },
-        updated(){ //挂载元素，获取到DOM节点
-        },
-        beforeDestroy(){
+      //     },
+      //     created(){
 
-        },
-        destroyed(){
+      //     },
+      //     beforeMount(){
 
-       },
-        data:function () {
-             return  {
-                 count:0,
+      //     },
+      //     methods:{
+      //       click:function () {
+      //            console.log('点击事件')
+      //       }
+      //     },
+      //     mounted: function (){ //挂载元素，获取到DOM节点
+      //         setTimeout(()=>{
+      //             console.log(this.count)
+      //             this.count++;
+      //             console.log('this.count=')
+      //             console.log(this.count)
+      //         },1000)
+      //     },
+      //     computed: {
+      //         // 计算属性的 getter
+      //         reversedCount: function () {
+      //             // `this` 指向 vm 实例
+      //             return this.count++;
+      //         }
+      //     },
 
-                 message: 'Hello Vue!1111111'
-             }
-        },
-//        data: {
-//            count:0,
-//            message: 'Hello Vue!'
-//        }
-    })
-    var app1 = new Vue({
-        comments:true,
-        el: '#app1',
-        beforeCreate(){
+      //     beforeUpdate(){
 
-        },
-        created(){
+      //     },
+      //     updated(){ //挂载元素，获取到DOM节点
+      //     },
+      //     beforeDestroy(){
 
-        },
-        beforeMount(){
+      //     },
+      //     destroyed(){
 
-        },
-        methods:{
-          click:function () {
-               console.log('点击事件')
-          }
-        },
-        mounted: function (){ //挂载元素，获取到DOM节点
-            setTimeout(()=>{
-                console.log(this.count)
-                this.count++;
-                console.log('this.count=')
-                console.log(this.count)
-            },1000)
-        },
-        computed: {
-            // 计算属性的 getter
-            reversedCount: function () {
-                // `this` 指向 vm 实例
-                return this.count++;
-            }
-        },
+      //     },
+      //     data: {
+      //         count:0,
 
-        beforeUpdate(){
-
-        },
-        updated(){ //挂载元素，获取到DOM节点
-        },
-        beforeDestroy(){
-
-        },
-        destroyed(){
-
-        },
-        data: {
-            count:0,
-
-            message: 'Hello Vue!2222'
-        }
-    })
-</script>
-
-</body>
+      //         message: 'Hello Vue!2222'
+      //     }
+      // })
+    </script>
+  </body>
 </html>
